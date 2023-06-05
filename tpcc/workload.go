@@ -119,7 +119,7 @@ func NewWorkloader(db *sql.DB, cfg *Config) (workload.Workloader, error) {
 	}
 	switch l := len(cfg.Weight); l {
 	case 0:
-		cfg.Weight = []int{45, 43, 4, 4, 4}
+		cfg.Weight = []int{40, 40, 4, 4, 4}
 	case 5:
 		totalWeight := 0
 		for _, w := range cfg.Weight {
