@@ -125,9 +125,9 @@ func NewWorkloader(db *sql.DB, cfg *Config) (workload.Workloader, error) {
 		for _, w := range cfg.Weight {
 			totalWeight += w
 		}
-		if totalWeight != 100 {
-			panic(fmt.Errorf("The sum of weight should be 100: %v", cfg.Weight))
-		}
+// 		if totalWeight != 100 {
+// 			panic(fmt.Errorf("The sum of weight should be 100: %v", cfg.Weight))
+// 		}
 	default:
 		panic(fmt.Errorf("Should specify exact 5 weights: %v", cfg.Weight))
 	}
