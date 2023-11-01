@@ -504,6 +504,66 @@ CREATE TABLE IF NOT EXISTS item (
 			return err
 		}
 
+////////////  
+
+		query = `SELECT create_distributed_table('customer', 'c_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('district', 'd_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('history', 'h_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('warehouse', 'w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('stock', 's_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('new_order', 'no_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('orders', 'o_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('order_line', 'ol_w_id')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+
+		query = `SELECT create_reference_table('item')`
+
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+////////////  
+		
+
 		if w.useFK {
 			// TODO: Add foreign key constraint
 		}
