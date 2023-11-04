@@ -506,49 +506,49 @@ CREATE TABLE IF NOT EXISTS item (
 
 ////////////  
 
-		query = `SELECT create_distributed_table('customer', 'c_w_id')`
+		query = `SELECT create_distributed_table('customer', 'c_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('district', 'd_w_id')`
+		query = `SELECT create_distributed_table('district', 'd_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('history', 'h_w_id')`
+		query = `SELECT create_distributed_table('history', 'h_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('warehouse', 'w_id')`
+		query = `SELECT create_distributed_table('warehouse', 'w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('stock', 's_w_id')`
+		query = `SELECT create_distributed_table('stock', 's_w_id', shard_count => 48)`
+
+		if err := w.(ctx, query, tableItem); err != nil {
+			return err
+		}
+
+		query = `SELECT create_distributed_table('new_order', 'no_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('new_order', 'no_w_id')`
+		query = `SELECT create_distributed_table('orders', 'o_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
-		query = `SELECT create_distributed_table('orders', 'o_w_id')`
-
-		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
-			return err
-		}
-
-		query = `SELECT create_distributed_table('order_line', 'ol_w_id')`
+		query = `SELECT create_distributed_table('order_line', 'ol_w_id', shard_count => 48)`
 
 		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
