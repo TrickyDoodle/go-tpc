@@ -532,7 +532,7 @@ CREATE TABLE IF NOT EXISTS item (
 
 		query = `SELECT create_distributed_table('stock', 's_w_id', shard_count => 48)`
 
-		if err := w.(ctx, query, tableItem); err != nil {
+		if err := w.createTableDDL(ctx, query, tableItem); err != nil {
 			return err
 		}
 
